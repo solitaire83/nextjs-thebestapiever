@@ -3,8 +3,11 @@ import path from 'path';
 import CONFIG from '@/app/cfg.js';
 
 import __FILTERCONTENT from '../../../utils/ContentFilter';
+import { IncrementStats } from '../../../funcs/IncrStats';
 
 export async function GET() {
+        await IncrementStats('/cars');
+        
         const DIR = path.join(process.cwd(), 'public', 'storage', 'cars');
         const CONTENT = await __FILTERCONTENT(DIR);
 

@@ -3,9 +3,12 @@ import path from 'path';
 import CONFIG from '@/app/cfg.js';
 
 import __FILTERCONTENT from '../../../utils/ContentFilter';
+import { IncrementStats } from '../../../funcs/IncrStats';
 
 export async function GET() {
-        const DIR = path.join(process.cwd(), 'public', 'storage', 'hi');
+        await IncrementStats('/fun');
+        
+        const DIR = path.join(process.cwd(), 'public', 'storage', 'fun');
         const CONTENT = await __FILTERCONTENT(DIR);
                 
         if(CONTENT.length === 0)
