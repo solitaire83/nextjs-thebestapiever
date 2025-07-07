@@ -21,7 +21,7 @@
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/app.git
+git clone https://github.com/solitaire83/nextjs-thebestapiever.git
 cd app
 ```
 
