@@ -1,36 +1,145 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TheBestAPIEver 🚗🎉
 
-## Getting Started
+**TheBestAPIEver** - the best template to start your own API/CDN or whatever you want
 
-First, run the development server:
+## 📋 Project
 
+### ✨ Features
+
+- 🎲 **Random Images**: Returns random images from predefined categories
+- 📊 **Statistics Board**: Elegant web interface for usage monitoring
+- 🗃️ **MongoDB Database**: Persistent statistics tracking
+
+## 🚀 Installation and Setup
+
+### Requirements
+- NPM
+- Nodejs
+- MongoDB
+
+### Installation Steps
+
+1. **Clone the repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/app.git
+cd app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. **Configure database**
+   - Edit `app/cfg.js` with your own configurations
+   ```javascript
+   const CONFIG = {
+       DOMAIN: "localhost",
+       PORT: "3000",
+       DB: "your-mongo-thing"
+   }
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+5. **Run the application**
+```bash
+npm run dev
+```
 
-## Learn More
+## 📚 Documentation
 
-To learn more about Next.js, take a look at the following resources:
+### Base URL
+```
+http://localhost:3000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Endpoints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### 🏠 **GET** `/api`
+Base endpoint for API testing.
 
-## Deploy on Vercel
+**Response:**
+```
+"welcome to the best api ever"
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### 🚗 **GET** `/v1/cars`
+Returns a random image from the "cars" category.
+
+**Response:**
+```json
+{
+  "cars": "http://localhost:3000/storage/cars/1.gif"
+}
+```
+
+**Usage examples:**
+```javascript
+// JavaScript/Fetch
+fetch('http://localhost:3000/api/v1/cars')
+  .then(response => response.json())
+  .then(data => console.log(data.cars));
+
+// cURL
+curl http://localhost:3000/api/v1/cars
+```
+
+---
+
+#### 🎉 **GET** `/v1/fun`
+Returns a random image from the "fun" category.
+
+**Response:**
+```json
+{
+  "fun": "http://localhost:3000/storage/fun/3.gif"
+}
+```
+
+**Usage examples:**
+```javascript
+// JavaScript/Fetch
+fetch('http://localhost:3000/api/v1/fun')
+  .then(response => response.json())
+  .then(data => console.log(data.fun));
+
+// cURL
+curl http://localhost:3000/api/v1/fun
+```
+
+---
+
+#### 📊 **GET** `/stats`
+Returns detailed statistics about the API usage.
+
+## 🎯 Examples of Use
+
+### 🧡**API Testing/Development**
+Perfect for testing integrations and developing applications that require placeholder images.
+![Example Usage](public/example.gif)
+
+## 🛠️ Technologies Used
+
+- **Frontend**: Next.js, React, TailwindCSS
+- **Backend**: Next.js
+- **Database**: MongoDB
+
+## 📁 Project Structure
+
+```
+├── app/
+│   ├── backend/           # Backend logic
+│   │   ├── routes/        # API endpoints
+│   │   ├── database/      # Database connection
+│   │   ├── funcs/         # Functions
+│   │   └── utils/         # Utilities
+│   ├── frontend/          # Frontend logic
+│   └── cfg.js            # Configuration
+├── public/
+│   └── storage/          # Images storage
+│       ├── cars/         # Car images
+│       └── fun/          # Fun images
+└── package.json
+```
+
