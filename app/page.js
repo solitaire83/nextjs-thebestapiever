@@ -1,5 +1,6 @@
+import Index from "./frontend/index"
 export default function MAIN() {
   return (
-    <div>Salut</div>
+    <Index/>
   );
 }
